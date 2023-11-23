@@ -1,18 +1,24 @@
 {
-  "name": "stem",
+  "name": "nodelogin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for login",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon index.js",
-    "start": "npx nodemon index.js"
+    "dev": "npx nodemon server.js",
+    "production": "node server.js",
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "NBT",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^8.0.0",
-    "mqtt": "^5.1.4"
+    "mongoose": "^6.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
