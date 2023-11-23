@@ -13,14 +13,14 @@ module.exports = (app) => {
     try {
       console.log(emailRegex.test(email));
       if (email && !emailRegex.test(email)) {
-        res.send("Please, Type the true email.")
+        res.send("Error: Please, Type the true email.")
         return;
       }
 
       if (username) {
         let checkUser = await Account.findOne({ username: username });
         if (checkUser) {
-          res.send("Username is already taken.")
+          res.send("Error: Username is already taken.")
           return;
         }
       }
@@ -36,7 +36,7 @@ module.exports = (app) => {
           notEnough_Info_Error.push("Password");
         }
 
-        res.send(`Please, Type the ${notEnough_Info_Error.join(", ")}.`);
+        res.send(`Error: Please, Type the ${notEnough_Info_Error.join(", ")}.`);
         return;
       }
 
@@ -66,7 +66,7 @@ module.exports = (app) => {
       }
 
     } catch (error) {
-      res.send(error.error)
+      res.send(`Error: ${error.error}`)
     }
   });
 
@@ -85,13 +85,13 @@ module.exports = (app) => {
         if (!password) {
           notEnough_Info_Error.push("Password");
         }
-        res.send(`Please, Type the ${notEnough_Info_Error.join(", ")}.`);
+        res.send(`Error: Please, Type the ${notEnough_Info_Error.join(", ")}.`);
         return;
       }
 
       let userAccount = await Account.findOne({ username: username })
       if (!userAccount) {
-        res.send("Sorry you don't have an account.")
+        res.send("Error: Sorry you don't have an account.")
         return;
       }
       else {
@@ -100,14 +100,14 @@ module.exports = (app) => {
           else {
 
             let data = { data: userAccount, message: "Login Complete!" };
-            res.send((!result)? "Password is wrong.": data);
+            res.send((!result)? "Error: Password is wrong.": data);
 
           }
         })
       }
 
     } catch (error) {
-      res.send(error.error);
+      res.send(`Error: ${error.error}`);
     }
   })
 

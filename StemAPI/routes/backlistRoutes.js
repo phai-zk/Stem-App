@@ -13,7 +13,7 @@ module.exports = (app) => {
 
             const userAccount = await Account.findOne({ username: username });
             if (!userAccount) {
-                res.send("Can't find this account.");
+                res.send("Error: Can't find this account.");
                 return;
             }
 
