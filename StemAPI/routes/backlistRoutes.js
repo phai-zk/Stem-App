@@ -28,7 +28,7 @@ module.exports = (app) => {
             })
 
         } catch (error) {
-
+            res.send(`Error : ${error}`);
         }
 
     })

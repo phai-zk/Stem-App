@@ -55,7 +55,15 @@ module.exports = (app) => {
           email: email,
           username: username,
           password: hashPassword,
-          data: {},
+          data: {
+            treeDatas: [],
+            setting:
+            {
+              noti: true,
+              bgm: true,
+              plant: true,
+            },
+          },
           lastAuthentication: Date.now()
         };
 
@@ -100,7 +108,7 @@ module.exports = (app) => {
           else {
 
             let data = { data: userAccount, message: "Login Complete!" };
-            res.send((!result)? "Error: Password is wrong.": data);
+            res.send((!result) ? "Error: Password is wrong." : data);
 
           }
         })

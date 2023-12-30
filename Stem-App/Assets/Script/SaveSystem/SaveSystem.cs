@@ -26,9 +26,9 @@ public class SaveSystem : MonoBehaviour {
         }
         Toggle[] toggles = pages[2].GetComponentsInChildren<Toggle>();    
 
-        data.noti = !toggles[0].isOn;
-        data.bgm = !toggles[1].isOn;
-        data.plant = !toggles[2].isOn;
+        data.noti = toggles[0].isOn;
+        data.bgm = toggles[1].isOn;
+        data.plant = toggles[2].isOn;
 
         string json = JsonUtility.ToJson(data);
     }

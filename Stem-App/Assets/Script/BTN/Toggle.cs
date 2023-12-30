@@ -16,7 +16,7 @@ public class Toggle : MonoBehaviour
 
     private Button button;
     [HideInInspector]
-    public bool isOn = false;
+    public bool isOn = true;
 
     [Serializable]
     public class EventAction : UnityEvent<bool> { }
@@ -27,13 +27,14 @@ public class Toggle : MonoBehaviour
         OnToggle();
         button = GetComponent<Button>();
         button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(()=>OnToggle());    
+        button.onClick.AddListener(()=>{        
+            isOn = (isOn == false)? true: false;
+            OnToggle();
+        });    
     }
 
     private void OnToggle()
     {
-        isOn = (isOn == false)? true: false;
-        Debug.Log("HI");
         SwitchToggle();
         action?.Invoke(isOn);
     }
