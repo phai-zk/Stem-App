@@ -57,8 +57,8 @@ public class CreatePage : Page {
         bool check1 = moistureRange.dataOFRange != "";
         bool check2 = lightRange.dataOFRange != "";
         bool check3 = tempRange.dataOFRange != "";
-        Debug.Log($"{treeName} : {moistureRange.dataOFRange} : {lightRange.dataOFRange} : {tempRange.dataOFRange}");
-            Debug.Log($"Check : {check0} : {check1} : {check2} : {check3}");
+        // Debug.Log($"{treeName} : {moistureRange.dataOFRange} : {lightRange.dataOFRange} : {tempRange.dataOFRange}");
+        // Debug.Log($"Check : {check0} : {check1} : {check2} : {check3}");
         if (check0&&check1&&check2&&check3)
         {
             treeInfo = new TreeInfo();
