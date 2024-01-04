@@ -75,7 +75,7 @@ public class DelayDestroy : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
