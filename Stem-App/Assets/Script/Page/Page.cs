@@ -14,10 +14,16 @@ public class Page : MonoBehaviour
         set => currentPage = value;
     }
 
+    [System.Obsolete]
     protected virtual void Awake() {
         OnChangePage += ChangeCurrentPage;
         currentPage = MiddleData.Middle.allPage[0];
         StartCoroutine(SceneSetup());
+    }
+
+    public virtual void Reset()
+    {
+        
     }
 
     IEnumerator SceneSetup()

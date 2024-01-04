@@ -11,13 +11,15 @@ module.exports = (app) => {
         if (!rData)
             return res.status(500).send("Error : Not enough info");
 
+        let data = JSON.parse(rData);
+
         try {
 
             let updateData = await Account.updateOne(
                 { username: rUserName },
                 {
                     $set: {
-                        treeData: rData,
+                        treeData: data.treeDatas,
                     }
                 }
             );
@@ -44,10 +46,12 @@ module.exports = (app) => {
         try {
 
             let data = {
-                Data: userAccount, message: "GetDataComplate"
+                treeData: userAccount.treeData,
+                treeCount: userAccount.treeData.length,
+                message: "GetDataComplate"
             };
             console.log(data);
-            res.send(data)
+            res.send(JSON.stringify(data));
             
         } catch (error) {
             res.status(500).send(`Error : ${error}`)

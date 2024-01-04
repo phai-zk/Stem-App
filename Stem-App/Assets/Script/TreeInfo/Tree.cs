@@ -14,11 +14,13 @@ public class Tree : ScriptableObject
     public UnityAction OnTalk;
     TextVoice message;
 
+    [Obsolete]
     public void Preparing()
     {
         OnTalk += RandomTlak;
     }
 
+    [Obsolete]
     public void RandomTlak()
     {
         

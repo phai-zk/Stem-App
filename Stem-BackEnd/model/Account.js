@@ -6,14 +6,7 @@ const accountSchema = new Schema({
     email: String,
     username: String,
     password: String,
-    treeData:[
-    {
-        treeName : String,
-        treeModel : String,
-        moistureData : String,
-        lightData : String,
-        tempData : String,
-    }],
+    treeData:[],
     lastAuthentication: { type: Date, default: Date.now }
 });
 

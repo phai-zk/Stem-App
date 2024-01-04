@@ -41,6 +41,7 @@ public class Toggle : MonoBehaviour
 
     private void SwitchToggle()
     {
+        if (!active || !unActive) return;
         active.SetActive(isOn);
         unActive.SetActive(!isOn);
     }

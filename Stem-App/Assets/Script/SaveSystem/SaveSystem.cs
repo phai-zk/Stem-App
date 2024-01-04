@@ -1,27 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SaveSystem : MonoBehaviour {
+public class SaveSystem : MonoBehaviour
+{
 
     private Data data;
     public static SaveSystem Save;
+    public TreeInfo tree;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         Save = this;
     }
 
     [Obsolete]
-    private void SaveData()
+    public void SaveData()
     {
         if (PlayerPrefs.GetString("Username") == null) return;
         data = new Data();
         Page[] pages = MiddleData.Middle.allPage;
         HomePage home = pages[0].GetComponent<HomePage>();
         List<TreeInfo> treeInfo = home.treeInfoBoxs;
-        Debug.Log(treeInfo.Count);
+        // Debug.Log(treeInfo.Count);
 
         for (var i = 0; i < treeInfo.Count; i++)
         {
@@ -33,19 +37,20 @@ public class SaveSystem : MonoBehaviour {
             userTree.tempData = treeInfo[i].tempData;
 
             data.treeDatas.Add(userTree);
-            Debug.Log(data.treeDatas[i].treeName);
+            // Debug.Log(data.treeDatas[i].treeName);
         }
         data.userName = PlayerPrefs.GetString("Username");
 
         WWWForm form = new WWWForm();
-        form.AddField("rData",JsonUtility.ToJson(data));
+        form.AddField("rData", JsonUtility.ToJson(data));
         StartCoroutine(SaveGame(form));
     }
 
     [Obsolete]
-    IEnumerator SaveGame(WWWForm json) 
+    IEnumerator SaveGame(WWWForm json)
     {
         string username = PlayerPrefs.GetString("Username");
+        if (username == null) StopCoroutine(SaveGame(null));
 
         using (UnityWebRequest www = UnityWebRequest.Post($"{AuthenticationSystem.GetUrl}data/SaveData/{username}", json))
         {
@@ -54,31 +59,41 @@ public class SaveSystem : MonoBehaviour {
             if (www.result != UnityWebRequest.Result.Success)
             {
                 // Successfully retrieved data
-                Debug.Log("Error : " + www.error);
-            }
-            else
-            {
-                Debug.Log(www.downloadHandler.text.ToString());
+                Debug.LogError("Error : " + www.error);
             }
         }
     }
-    
-    public Coroutine LoadData(Data _data)
-    {
-        data = _data;
 
-        Page[] pages = MiddleData.Middle.allPage;
-        HomePage home = pages[0].GetComponent<HomePage>();
-        List<TreeInfo> treeInfo = home.treeInfoBoxs;
-        
-        for (int i = 0; i < data.treeDatas.Count; i++)
+    [Obsolete]
+    public Coroutine LoadData(string jsonData)
+    {
+        JSONNode json = JSON.Parse(jsonData);
+
+        // Access the array of tree data
+        JSONArray treeDataArray = json["treeData"].AsArray;
+
+        SettingPage setting = MiddleData.Middle.allPage[2].GetComponent<SettingPage>();
+        HomePage home = MiddleData.Middle.allPage[0].GetComponent<HomePage>();
+        setting.PrepareUI();
+        home.treeInfoBoxs = new List<TreeInfo>();
+        // Loop through each tree data
+        foreach (JSONNode treeDataNode in treeDataArray)
         {
-            treeInfo[i].treeName = data.treeDatas[i].treeName;
-            treeInfo[i].treeModel.name = data.treeDatas[i].treeModel;
-            treeInfo[i].moistureData = data.treeDatas[i].moistureData;
-            treeInfo[i].lightData = data.treeDatas[i].lightData;
-            treeInfo[i].tempData = data.treeDatas[i].tempData;
+            // Access values for each tree data
+            TreeInfo info = new TreeInfo{
+                treeName = treeDataNode["treeName"],
+                treeModel = MiddleData.Middle.FindTree(treeDataNode["treeModel"]),
+                moistureData = treeDataNode["moistureData"],
+                lightData = treeDataNode["lightData"],
+                tempData = treeDataNode["tempData"],
+            };
+
+            // Print values for each tree data
+            // Debug.Log($"{treeDataNode["treeName"]}, {treeDataNode["treeModel"]}, {treeDataNode["moistureData"]}");
+            // Debug.Log($"{info.treeName}, {info.moistureData}, {info.lightData}, {info.tempData}");
+            home.UpdateList(info);
         }
+
         return null;
     }
 
@@ -90,12 +105,5 @@ public class SaveSystem : MonoBehaviour {
             SaveData();
         }
     }
-
-    [Obsolete]
-    private void OnApplicationQuit()
-    {
-        SaveData();
-    }
-
 
 }

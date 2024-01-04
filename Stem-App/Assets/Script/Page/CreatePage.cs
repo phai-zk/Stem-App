@@ -26,6 +26,7 @@ public class CreatePage : Page {
         wifi = "";
     }
 
+    [System.Obsolete]
     protected override void Awake()
     {
         input.text = "";

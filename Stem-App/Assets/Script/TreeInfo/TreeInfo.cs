@@ -18,6 +18,11 @@ public class TreeInfo : MonoBehaviour {
     [HideInInspector]
     public string tempData;
     public UnityAction<TreeInfo> OnDescription;
+
+    public void GetTreeModel(string name)
+    {
+        treeModel = MiddleData.Middle.FindTree(name);
+    }
     
     public void SetUI(string _treeName, string _moistureData, string _lightData, string _tempData)
     {
@@ -27,6 +32,7 @@ public class TreeInfo : MonoBehaviour {
         this.tempData = _tempData;
     }
 
+    [Obsolete]
     public void SetUp(Tree _tree) 
     {
         Match match = EnCodeData(this.moistureData);

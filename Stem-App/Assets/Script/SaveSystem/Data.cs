@@ -12,43 +12,39 @@ public class Data
 [System.Serializable]
 public class UserTreeData
 {
-   public string treeName;
-   public string treeModel;
-   public string moistureData;
-   public string lightData;
-   public string tempData;
+    public string treeName;
+    public string treeModel;
+    public string moistureData;
+    public string lightData;
+    public string tempData;
 }
 
+[System.Serializable]
+public class TreeDataListWrapper
+{
+    public List<JsonData.TreeData> treeData;
+    public string message;
+}
+
+
+[System.Serializable]
 public class JsonData
 {
     public class UserName
     {
         public string data;
         public string message;
-    }   
-
-    public class Data
-    {
-        public DataWrapper data;
-        public string message;
     }
 
     [System.Serializable]
-    public class DataWrapper
+    public class TreeData
     {
-        public UserDataWrapper data;
+        public string treeName { get; set; }
+        public string treeModel { get; set; }
+        public string moistureData { get; set; }
+        public string lightData { get; set; }
+        public string tempData { get; set; }
     }
 
-    [System.Serializable]
-    public class UserDataWrapper
-    {
-        public List<UserTreeData> treeData;
-        public string _id;
-        public string email;
-        public string username;
-        public string password;
-        public string lastAuthentication;
-        public int __v;
-    }
 }
 

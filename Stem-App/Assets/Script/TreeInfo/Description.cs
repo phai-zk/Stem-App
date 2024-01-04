@@ -14,8 +14,8 @@ public class Description : MonoBehaviour {
     private RectTransform spawnAreaSize;
     
     public static Description instance;
-    
 
+    [Obsolete]
     public void PrepareUI(TreeInfo info)
     {
         instance = this;
@@ -27,9 +27,9 @@ public class Description : MonoBehaviour {
         Match match;
         match = info.EnCodeData(info.tempData);
         
-        Debug.Log($"{info.tempData}");
-        Debug.Log($"{match.Groups.Count}");
-        Debug.Log($"{match.Groups[1]}");
+        // Debug.Log($"{info.tempData}");
+        // Debug.Log($"{match.Groups.Count}");
+        // Debug.Log($"{match.Groups[1]}");
         int newTemp = Int32.Parse(match.Groups[match.Groups.Count-1].Value) - UnityEngine.Random.Range(-2, 5);
         temp.text = $"{newTemp}°C";
 
@@ -42,6 +42,7 @@ public class Description : MonoBehaviour {
         StartCoroutine(RandomTalk(info));
     }
 
+    [Obsolete]
     IEnumerator RandomTalk(TreeInfo info)
     {
         info.treeModel.RandomTlak();

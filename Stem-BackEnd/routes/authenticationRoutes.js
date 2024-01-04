@@ -76,7 +76,6 @@ module.exports = (app) => {
     const { username, password } = req.body;
     let notEnough_Info_Error = [];
 
-    try {
 
       if (!username || !password) {
         if (!username) {
@@ -100,7 +99,11 @@ module.exports = (app) => {
       if (findUserName) userAccount = findUserName;
       if (findEmail) userAccount = findEmail;
 
-      bcrypt.compare(password, userAccount.password, (err, result) => {
+      if (!userAccount) {
+          res.status(500).send("Error: Sorry you don't have an account.")
+      }
+
+        bcrypt.compare(password, userAccount.password, (err, result) => {
         if (err) throw err;
         else {
 
@@ -114,9 +117,6 @@ module.exports = (app) => {
         }
       })
 
-    } catch (error) {
-        res.status(500).send(`Error: ${error.error}`);
-    }
   })
 
 }

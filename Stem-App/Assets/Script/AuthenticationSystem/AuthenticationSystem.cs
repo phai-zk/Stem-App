@@ -1,22 +1,15 @@
 using SimpleJSON;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class AuthenticationSystem : MonoBehaviour {
+public class AuthenticationSystem : MonoBehaviour
+{
 
-
-    [SerializeField]
-    private GameObject loginPanel;
-
-    [SerializeField]
-    private GameObject signinPanel;
-
-    [SerializeField]
-    private GameObject loadingPage;
+    public GameObject loginPanel;
+    public GameObject signinPanel;
+    public GameObject loadingPage;
 
     [SerializeField]
     private GameObject appPage;
@@ -27,10 +20,12 @@ public class AuthenticationSystem : MonoBehaviour {
     string signPass;
 
     public void GetSignEmail(string text) => signEmail = text;
-    public void GetSignUserName( string text) => signUserName = text;
-    public void GetSignPass( string text) => signPass = text;
+    public void GetSignUserName(string text) => signUserName = text;
+    public void GetSignPass(string text) => signPass = text;
 
     #endregion
+
+    public static AuthenticationSystem authentication;
 
     #region Log In Info
     string logUserNameOrEmail;
@@ -43,7 +38,18 @@ public class AuthenticationSystem : MonoBehaviour {
     private static string url = "http://localhost:5000/";
     public static string GetUrl { get => url; }
 
+    [System.Obsolete]
+    private void OnEnable()
+    {
+        authentication = this;
+        Debug.Log($"{PlayerPrefs.GetString("Username")} : {PlayerPrefs.GetString("Username") != null}");
+        if (PlayerPrefs.GetString("Username") != null)
+        {
+            StartCoroutine(FinishLogIn(loginPanel));
+        }
+    }
 
+    [System.Obsolete]
     public void LogIn()
     {
         StartCoroutine(RequestLogIn());
@@ -51,30 +57,31 @@ public class AuthenticationSystem : MonoBehaviour {
         {
             #region Json
             WWWForm json = new WWWForm();
-            json.AddField("username",logUserNameOrEmail);
-            json.AddField("password",logPass);        
+            json.AddField("username", logUserNameOrEmail);
+            json.AddField("password", logPass);
             #endregion
-            
-            using (UnityWebRequest www = UnityWebRequest.Post($"{url}account/Login",json))
+
+            using (UnityWebRequest www = UnityWebRequest.Post($"{url}account/Login", json))
             {
                 yield return www.SendWebRequest();
 
                 if (www.result != UnityWebRequest.Result.Success)
                 {
                     // Successfully retrieved data
-                    Debug.Log("Error : "+www.error);
+                    Debug.Log("Error : " + www.error);
                 }
                 else
                 {
-                    Debug.Log(www.downloadHandler.text.ToString());
                     JsonData.UserName data = JsonUtility.FromJson<JsonData.UserName>(www.downloadHandler.text);
                     PlayerPrefs.SetString("Username", data.data);
-                    StartCoroutine(FinishLogIn(loginPanel));    
+                    Debug.Log(data.data);
+                    StartCoroutine(FinishLogIn(loginPanel));
                 }
             }
         }
     }
-    
+
+    [System.Obsolete]
     public void SignIn()
     {
         StartCoroutine(RequestSignIn());
@@ -83,32 +90,32 @@ public class AuthenticationSystem : MonoBehaviour {
         {
             #region Json
             WWWForm json = new WWWForm();
-            json.AddField("email",signEmail);
-            json.AddField("username",signUserName);
-            json.AddField("password",signPass);        
+            json.AddField("email", signEmail);
+            json.AddField("username", signUserName);
+            json.AddField("password", signPass);
             #endregion
-            
-            using (UnityWebRequest www = UnityWebRequest.Post($"{url}account/createAccount",json))
+
+            using (UnityWebRequest www = UnityWebRequest.Post($"{url}account/createAccount", json))
             {
                 yield return www.SendWebRequest();
 
                 if (www.result != UnityWebRequest.Result.Success)
                 {
                     // Successfully retrieved data
-                    Debug.Log("Error : "+www.error);
+                    Debug.Log("Error : " + www.error);
                 }
                 else
                 {
-                    Debug.Log(www.downloadHandler.text.ToString());
                     JsonData.UserName data = JsonUtility.FromJson<JsonData.UserName>(www.downloadHandler.text);
                     PlayerPrefs.SetString("Username", data.data);
                     StartCoroutine(FinishLogIn(signinPanel));
-                }   
+                }
             }
         }
     }
 
-    IEnumerator FinishLogIn(GameObject obj)  
+    [System.Obsolete]
+    IEnumerator FinishLogIn(GameObject obj)
     {
         obj.SetActive(false);
         loadingPage.SetActive(true);
@@ -128,30 +135,23 @@ public class AuthenticationSystem : MonoBehaviour {
             }
             else
             {
-                Debug.Log(www.downloadHandler.text.ToString());
-                JSONNode json = JSON.Parse(www.downloadHandler.text);
-                List<UserTreeData> uTD = JsonUtility.FromJson<List<UserTreeData>>(json["Data"]["treeData"]);
-                if (uTD == null)
-                {
-                    uTD = new List<UserTreeData>();
-                }
+                string json = www.downloadHandler.text;
 
-                Data data = new Data
-                { 
-                    treeDatas = uTD,
-                    userName = json["Data"]["username"]
-                };
-
-                // Debug.Log( " : " + json["Data"]["treeData"]);
-
-                // if((data.treeDatas == null)) ;
-
-                yield return SaveSystem.Save.LoadData(data);
+                yield return SaveSystem.Save.LoadData(json);
                 appPage.SetActive(true);
                 anim.SetBool("FnishLoad", true);
                 yield return anim;
                 loadingPage.SetActive(false);
             }
         }
+    }
+
+    public void Reset()
+    {
+        loginPanel.SetActive(true);
+        signinPanel.SetActive(false);
+        loadingPage.SetActive(false);
+
+        loadingPage.GetComponent<Animator>().SetBool("FnishLoad", false);
     }
 }

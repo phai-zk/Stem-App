@@ -15,7 +15,6 @@ public class MiddleData : MonoBehaviour {
     public Tree[] trees;
     public  Page[] allPage;
 
-    public List<TreeInfo> treeInfoBoxs;
 
     [Obsolete]
     private void OnEnable() {
@@ -39,5 +38,17 @@ public class MiddleData : MonoBehaviour {
     public Tree GetTree()
     {
         return trees[UnityEngine.Random.Range(0,trees.Length-1)];
+    }
+
+    public Tree FindTree(string name)
+    {
+        foreach (var tree in trees)
+        {
+            if (tree.name == name)
+            {
+                return tree;
+            }
+        }
+        return null;
     }
 }
