@@ -14,6 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 21300000, guid: e73daf0a5a6ead64f866db45bd3d03b0, type: 3}
   messages:
-  - textChat: {fileID: 0}
-    text: 
-    voice: {fileID: 0}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E2B\u0E19\u0E32\u0E27\u0E41\u0E1A\u0E1A\u0E19\u0E35\u0E49
+      \u0E43\u0E1A\u0E23\u0E48\u0E27\u0E07\u0E2B\u0E21\u0E14\u0E40\u0E25\u0E22\u0E41\u0E2E\u0E30"
+    voice: {fileID: 8300000, guid: 8dc5bfeb88a8013449d1772bce80a1cd, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E01\u0E33\u0E25\u0E31\u0E07\u0E40\u0E22\u0E47\u0E19\u0E40\u0E25\u0E22"
+    voice: {fileID: 8300000, guid: 55908406af83a144b9da586e7fb2c0e7, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E41\u0E1A\u0E1A\u0E19\u0E35\u0E49 \u0E1B\u0E25\u0E39\u0E01\u0E2D\u0E30\u0E44\u0E23\u0E01\u0E47\u0E02\u0E36\u0E49\u0E19"
+    voice: {fileID: 8300000, guid: cd1922da9660d2b499282f9e487b8be8, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E14\u0E35\u0E08\u0E31\u0E07 \u0E2D\u0E22\u0E48\u0E32\u0E21\u0E31\u0E48\u0E27\u0E41\u0E15\u0E48\u0E2D\u0E22\u0E39\u0E48\u0E43\u0E19\u0E1A\u0E49\u0E32\u0E19\u0E19\u0E30"
+    voice: {fileID: 8300000, guid: a1d9f544777be8f469b9df422b845aec, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E23\u0E49\u0E2D\u0E19\u0E08\u0E31\u0E07\u0E07\u0E07!!"
+    voice: {fileID: 8300000, guid: 27d9a49d97dae9845b3db100801b4fb6, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E1D\u0E19\u0E15\u0E01\u0E2D\u0E22\u0E39\u0E48\u0E23\u0E36\u0E1B\u0E48\u0E32\u0E27\u0E19\u0E30?"
+    voice: {fileID: 8300000, guid: 8ca67cfc255c06f4db854578b90211d1, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E0A\u0E37\u0E49\u0E19\u0E08\u0E31\u0E07\u0E41\u0E2E\u0E30.."
+    voice: {fileID: 8300000, guid: 10173cf9522d2d54589766478f507d11, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E19\u0E49\u0E33\u0E40\u0E22\u0E2D\u0E30\u0E40\u0E01\u0E34\u0E19\u0E44\u0E1B\u0E41\u0E25\u0E49\u0E27\u0E27\u0E27\u0E27!!"
+    voice: {fileID: 8300000, guid: f54877900c5392d4d9a7b810b04df328, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E02\u0E2D\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E48\u0E2D\u0E22\u0E22\u0E22!!"
+    voice: {fileID: 8300000, guid: 214d50055d29e6b4eb7341582ec494d2, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E19\u0E49\u0E33\u0E19\u0E49\u0E2D\u0E22\u0E40\u0E01\u0E34\u0E19\u0E44\u0E1B\u0E41\u0E25\u0E49\u0E27\u0E19\u0E30\u0E30\u0E30"
+    voice: {fileID: 8300000, guid: 4016befc26a25444081adecf56104164, type: 3}

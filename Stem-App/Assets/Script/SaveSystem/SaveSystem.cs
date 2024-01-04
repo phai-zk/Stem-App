@@ -10,7 +10,6 @@ public class SaveSystem : MonoBehaviour
 
     private Data data;
     public static SaveSystem Save;
-    public TreeInfo tree;
 
     private void OnEnable()
     {
