@@ -35,15 +35,14 @@ public class AuthenticationSystem : MonoBehaviour
     public void GetLogPass(string text) => logPass = text;
 
     #endregion
-    private static string url = "http://localhost:5000/";
+    private static string url = "https://stem-backend-gvjp.onrender.com/";
     public static string GetUrl { get => url; }
 
     [System.Obsolete]
     private void OnEnable()
     {
         authentication = this;
-        Debug.Log($"{PlayerPrefs.GetString("Username")} : {PlayerPrefs.GetString("Username") != null}");
-        if (PlayerPrefs.GetString("Username") != null)
+        if (PlayerPrefs.GetString("Username") != "")
         {
             StartCoroutine(FinishLogIn(loginPanel));
         }
@@ -123,6 +122,7 @@ public class AuthenticationSystem : MonoBehaviour
 
         if (PlayerPrefs.GetString("Username") == null) StopCoroutine(FinishLogIn(obj));
         string username = PlayerPrefs.GetString("Username");
+        Debug.Log(username);
 
         using (UnityWebRequest www = UnityWebRequest.Get($"{url}data/getData/{username}"))
         {
