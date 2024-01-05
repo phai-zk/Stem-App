@@ -86,6 +86,7 @@ public class SaveSystem : MonoBehaviour
                 lightData = treeDataNode["lightData"],
                 tempData = treeDataNode["tempData"],
             };
+            Debug.LogError(treeDataNode["treeName"] + " : "+treeDataNode["treeModel"]);
 
             // Print values for each tree data
             // Debug.Log($"{treeDataNode["treeName"]}, {treeDataNode["treeModel"]}, {treeDataNode["moistureData"]}");

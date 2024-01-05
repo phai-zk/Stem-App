@@ -46,6 +46,7 @@ public class MiddleData : MonoBehaviour {
         {
             if (tree.name == name)
             {
+                Debug.LogError($"{tree.name} : {name}");
                 return tree;
             }
         }

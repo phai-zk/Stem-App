@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84526666e13feaf488b439aa027634fd, type: 3}
+  m_Name: Mum
+  m_EditorClassIdentifier: 
+  model: {fileID: 21300000, guid: e73daf0a5a6ead64f866db45bd3d03b0, type: 3}
+  messages:
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E2B\u0E19\u0E32\u0E27\u0E41\u0E1A\u0E1A\u0E19\u0E35\u0E49
+      \u0E43\u0E1A\u0E23\u0E48\u0E27\u0E07\u0E2B\u0E21\u0E14\u0E40\u0E25\u0E22\u0E41\u0E2E\u0E30"
+    voice: {fileID: 8300000, guid: 837f13cff7b193e40aa12ff4884b3290, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E40\u0E22\u0E47\u0E19\u0E2A\u0E1A\u0E32\u0E22\u0E14\u0E35\u0E08\u0E31\u0E07\u0E40\u0E25\u0E22\u0E19\u0E30"
+    voice: {fileID: 8300000, guid: 55908406af83a144b9da586e7fb2c0e7, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E41\u0E1A\u0E1A\u0E19\u0E35\u0E49 \u0E1B\u0E25\u0E39\u0E01\u0E2D\u0E30\u0E44\u0E23\u0E01\u0E47\u0E02\u0E36\u0E49\u0E19"
+    voice: {fileID: 8300000, guid: 4d8ff303bd12e9f4d8d80031b1bf255b, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E14\u0E35\u0E08\u0E31\u0E07 \u0E2D\u0E22\u0E48\u0E32\u0E21\u0E31\u0E48\u0E27\u0E41\u0E15\u0E48\u0E2D\u0E22\u0E39\u0E48\u0E43\u0E19\u0E1A\u0E49\u0E32\u0E19\u0E19\u0E30"
+    voice: {fileID: 8300000, guid: 3a6cc4908a3115249bebeb94b588d447, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E23\u0E49\u0E2D\u0E19\u0E2F\u0E2F!!"
+    voice: {fileID: 8300000, guid: 7c66f87db7b0dd44c916184e6619143a, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E1D\u0E19\u0E15\u0E01\u0E2D\u0E22\u0E39\u0E48\u0E23\u0E36\u0E1B\u0E48\u0E32\u0E27\u0E19\u0E30?"
+    voice: {fileID: 8300000, guid: eaba5c320f18d514d85db5f1a5f33ae6, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E0A\u0E37\u0E49\u0E19\u0E08\u0E31\u0E07\u0E40\u0E25\u0E22\u0E41\u0E2E\u0E30"
+    voice: {fileID: 8300000, guid: 1ea3d1360b8a8f648840d40ee6e47ca8, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E19\u0E30\u0E19\u0E30 \u0E19\u0E49\u0E33\u0E40\u0E22\u0E2D\u0E30\u0E40\u0E01\u0E34\u0E19\u0E44\u0E1B\u0E41\u0E25\u0E49\u0E27\u0E27\u0E27\u0E27!!"
+    voice: {fileID: 8300000, guid: 82210b567ee98da4eb80020ba853552d, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E02\u0E2D\u0E19\u0E49\u0E33\u0E2B\u0E19\u0E48\u0E2D\u0E22\u0E22\u0E22!!"
+    voice: {fileID: 8300000, guid: 8a9ef827a5b3f5b4bb6ebeeeaddbac5c, type: 3}
+  - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
+    text: "\u0E19\u0E49\u0E33\u0E19\u0E49\u0E2D\u0E22\u0E40\u0E01\u0E34\u0E19\u0E44\u0E1B\u0E41\u0E25\u0E49\u0E27\u0E19\u0E30\u0E30\u0E30"
+    voice: {fileID: 8300000, guid: 5c7f7fc09f1e6e948913a48d46b0cffd, type: 3}

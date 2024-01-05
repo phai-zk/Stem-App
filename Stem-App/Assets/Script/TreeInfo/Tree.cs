@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Tree", menuName = "Tree/model", order = 0)]
 public class Tree : ScriptableObject
@@ -24,10 +23,8 @@ public class Tree : ScriptableObject
     public void RandomTlak()
     {
         
-        Debug.Log($"tree {FindObjectsOfType<DelayDestroy>().Length}");
         foreach (var tree in FindObjectsOfType<DelayDestroy>())
         {
-            Debug.Log(tree);
             Destroy(tree.gameObject);
         }
 
