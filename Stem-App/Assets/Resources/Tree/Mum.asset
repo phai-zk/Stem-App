@@ -20,7 +20,7 @@ MonoBehaviour:
     voice: {fileID: 8300000, guid: 837f13cff7b193e40aa12ff4884b3290, type: 3}
   - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
     text: "\u0E40\u0E22\u0E47\u0E19\u0E2A\u0E1A\u0E32\u0E22\u0E14\u0E35\u0E08\u0E31\u0E07\u0E40\u0E25\u0E22\u0E19\u0E30"
-    voice: {fileID: 8300000, guid: 55908406af83a144b9da586e7fb2c0e7, type: 3}
+    voice: {fileID: 8300000, guid: 474ee62abd08b544faef06aa6e30c118, type: 3}
   - textChat: {fileID: 3473296288083916503, guid: 9256911676a762f46b92a08da48a7255, type: 3}
     text: "\u0E2D\u0E32\u0E01\u0E32\u0E28\u0E41\u0E1A\u0E1A\u0E19\u0E35\u0E49 \u0E1B\u0E25\u0E39\u0E01\u0E2D\u0E30\u0E44\u0E23\u0E01\u0E47\u0E02\u0E36\u0E49\u0E19"
     voice: {fileID: 8300000, guid: 4d8ff303bd12e9f4d8d80031b1bf255b, type: 3}
